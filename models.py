@@ -1,0 +1,17 @@
+from config import db
+
+class Item(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=False, nullable=False)
+    description = db.Column(db.String(256), unique=False, nullable=False)
+    price = db.Column(db.Integer, unique=False, nullable=False)
+    allergens = db.Column(db.String(140), unique=False, nullable=False)
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "price": self.price,
+            "allergens": self.allergens
+        }
