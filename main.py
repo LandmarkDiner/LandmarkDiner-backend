@@ -1,12 +1,12 @@
 from flask import request, jsonify
 from config import app, db
-from models import Item
+from models import Menu
 
-@app.route("/items", methods=["GET"])
+@app.route("/menu", methods=["GET"])
 def get_items():
-    items = Item.query.all() 
-    json_items = list(map(lambda x: x.to_json(), items))
-    return jsonify({"items": items})
+    menu_items = Menu.query.all() 
+    json_menu = list(map(lambda x: x.to_json(), menu_items))
+    return jsonify({"items": json_menu})
 
 # @app.route("/create_item", methods=["POST"])  # Use POST instead of GET
 # def create_item():
