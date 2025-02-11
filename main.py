@@ -8,21 +8,21 @@ def get_items():
     json_items = list(map(lambda x: x.to_json(), items))
     return jsonify({"items": json_items})
 
-@app.route("/create_item", methods=["POST"])  # Use POST instead of GET
-def create_item():
-    data = request.get_json()  # Get JSON data from the request
-    name = data.get("name")
-    description = data.get("description")
-    price = data.get("price")
-    allergens = data.get("allergens")
+# @app.route("/create_item", methods=["POST"])  # Use POST instead of GET
+# def create_item():
+#     data = request.get_json()  # Get JSON data from the request
+#     name = data.get("name")
+#     description = data.get("description")
+#     price = data.get("price")
+#     allergens = data.get("allergens")
 
-    if not name or not description or not price or not allergens:
-        return jsonify({"message": "You must include a name, description, price, and allergens"}), 400
+#     if not name or not description or not price or not allergens:
+#         return jsonify({"message": "You must include a name, description, price, and allergens"}), 400
 
-    # Create a new item in the Supabase-connected database
-    new_item = Item(name=name, description=description, price=price, allergens=allergens)
-    db.session.add(new_item)
-    db.session.commit()
+#     # Create a new item in the Supabase-connected database
+#     new_item = Item(name=name, description=description, price=price, allergens=allergens)
+#     db.session.add(new_item)
+#     db.session.commit()
 
     return jsonify({"message": "Item created successfully", "item": new_item.to_json()}), 201
 
