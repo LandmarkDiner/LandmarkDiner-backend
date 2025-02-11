@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -14,3 +14,4 @@ if database_url.startswith("postgres://"):
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url + "?sslmode=require"
 
 db = SQLAlchemy(app)
+CORS(app)
