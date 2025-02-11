@@ -5,7 +5,7 @@ from models import Item
 @app.route("/items", methods=["GET"])
 def get_items():
     items = Item.query.all() 
-    # json_items = list(map(lambda x: x.to_json(), items))
+    json_items = list(map(lambda x: x.to_json(), items))
     return jsonify({"items": items})
 
 # @app.route("/create_item", methods=["POST"])  # Use POST instead of GET
