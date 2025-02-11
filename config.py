@@ -16,5 +16,5 @@ db_url = "postgresql://postgres:-Fxb.hy@U-6jQs@@db.twplccttrbfxpvafykqi.supabase
 
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url 
 
-dp.init_app(app)
+db.init_app(app)
 
