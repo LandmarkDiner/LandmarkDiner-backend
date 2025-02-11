@@ -24,7 +24,7 @@ def get_items():
 #     db.session.add(new_item)
 #     db.session.commit()
 
-    return jsonify({"message": "Item created successfully", "item": new_item.to_json()}), 201
+    # return jsonify({"message": "Item created successfully", "item": new_item.to_json()}), 201
 
 if __name__ == "__main__":
     with app.app_context():
