@@ -2,7 +2,7 @@ from flask import request, jsonify
 from config import app, db
 from models import Menu
 
-@app.route("/", methods=["GET"])
+@app.route("/menu", methods=["GET"])
 def get_all_items():
     menu_items = Menu.query.all() 
     json_menu = list(map(lambda x: x.to_json(), menu_items))
