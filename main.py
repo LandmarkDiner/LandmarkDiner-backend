@@ -8,29 +8,29 @@ def get_all_items():
     json_menu = list(map(lambda x: x.to_json(), menu_items))
     return jsonify({"items": json_menu})
 
-# @app.route("/menu/breakfast", methods=["GET"])
-# def get_breakfast_items():
-#     breakfast_items = Menu.query.filter_by(category="breakfast").all()
-#     json_menu = list(map(lambda x: x.to_json(), menu_items))
-#     return jsonify({"Breakfast items": json_menu})
+@app.route("/menu/breakfast", methods=["GET"])
+def get_breakfast_items():
+    breakfast_items = Menu.query.filter_by(category="breakfast").all()
+    json_menu = list(map(lambda x: x.to_json(), menu_items))
+    return jsonify({"Breakfast items": json_menu})
 
-# @app.route("/menu/lunch", methods=["GET"])
-# def get_breakfast_items():
-#     breakfast_items = Menu.query.filter_by(category="lunch").all()
-#     json_menu = list(map(lambda x: x.to_json(), menu_items))
-#     return jsonify({"Lunch items": json_menu})
+@app.route("/menu/lunch", methods=["GET"])
+def get_breakfast_items():
+    breakfast_items = Menu.query.filter_by(category="lunch").all()
+    json_menu = list(map(lambda x: x.to_json(), menu_items))
+    return jsonify({"Lunch items": json_menu})
 
-# @app.route("/menu/dinner", methods=["GET"])
-# def get_breakfast_items():
-#     breakfast_items = Menu.query.filter_by(category="dinner").all()
-#     json_menu = list(map(lambda x: x.to_json(), menu_items))
-#     return jsonify({"Dinner items": json_menu})
+@app.route("/menu/dinner", methods=["GET"])
+def get_breakfast_items():
+    breakfast_items = Menu.query.filter_by(category="dinner").all()
+    json_menu = list(map(lambda x: x.to_json(), menu_items))
+    return jsonify({"Dinner items": json_menu})
 
-# @app.route("/menu/dessert", methods=["GET"])
-# def get_breakfast_items():
-#     breakfast_items = Menu.query.filter_by(category="dessert").all()
-#     json_menu = list(map(lambda x: x.to_json(), menu_items))
-#     return jsonify({"Dessert items": json_menu})
+@app.route("/menu/dessert", methods=["GET"])
+def get_breakfast_items():
+    breakfast_items = Menu.query.filter_by(category="dessert").all()
+    json_menu = list(map(lambda x: x.to_json(), menu_items))
+    return jsonify({"Dessert items": json_menu})
 
 # @app.route("/create_item", methods=["POST"])  # Use POST instead of GET
 # def create_item():
