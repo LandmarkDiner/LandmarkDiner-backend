@@ -2,26 +2,26 @@ from flask import request, jsonify
 from config import app, db
 from models import Menu
 
+from flask import request, jsonify
+from config import app, db
+from models import Menu
+
 @app.route("/menu", methods=["GET"])
 def get_menu_items():
-    category = request.args.get("category")  # Get category from query param
-    search_term = request.args.get("search", "").lower()  # Get search term (optional)
+    category = request.args.get("category", "all").lower()
+    search_query = request.args.get("search", "").strip().lower()
 
-    # Start with all menu items
+    # Start with all items
     query = Menu.query
 
-    # Apply category filter if specified
-    if category and category.lower() != "all":
-        query = query.filter(Menu.category.ilike(category))  # Case-insensitive match
+    # Filter by category (ignore "all" to get everything)
+    if category != "all":
+        query = query.filter_by(category=category)
 
-    # Apply search filter if specified
-    if search_term:
-        query = query.filter(
-            (Menu.name.ilike(f"%{search_term}%")) | 
-            (Menu.description.ilike(f"%{search_term}%"))
-        )
+    # Apply search filtering if search_query is provided
+    if search_query:
+        query = query.filter(Menu.name.ilike(f"%{search_query}%"))
 
-    # Fetch filtered results
     menu_items = query.all()
     json_menu = [item.to_json() for item in menu_items]
 
