@@ -2,10 +2,6 @@ from flask import request, jsonify
 from config import app, db
 from models import Menu
 
-from flask import request, jsonify
-from config import app, db
-from models import Menu
-
 @app.route("/menu", methods=["GET"])
 def get_menu_items():
     category = request.args.get("category", "all").lower()
